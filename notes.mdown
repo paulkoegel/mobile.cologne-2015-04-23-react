@@ -6,13 +6,13 @@ https://tinyurl.com/clojure-post
 
 ---
 
----
+class: background-stretch-vertical mutable-state-is-bad
+background-image: url(images/davis-mutable-state-is-bad.png)
 
-class: vertical-center vertical-center-medium background-blue
-
-.vertical-title[Virtueller DOM]
-
-Daten → _f_ → UI
+???
++ simpelstes Beispiel
++ -> Problem liegt noch tiefer: veränderliche Datenstrukturen haben (-> **Immutable.js**)
+# -> Reacts Lösung:
 
 ---
 

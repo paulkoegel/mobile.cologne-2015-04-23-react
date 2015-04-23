@@ -260,6 +260,12 @@ class: vertical-center vertical-center-medium vertical-center background-blue
 
 ---
 
+class: vertical-center vertical-center-medium background-blue
+
+React = Shim für reaktiven DOM
+
+---
+
 background-image: url(images/monkeys-slow.gif)
 
 ???
@@ -268,6 +274,54 @@ background-image: url(images/monkeys-slow.gif)
 
 ---
 
+class: vertical-center vertical-center-large background-green
+
+**Komponentenarchitektur**
+
+???
+React hat nur _einen_ Baustein: Komponenten
+
+---
+
+class: vertical-center
+
+<div id='example'></div>
+
+<script type='text/jsx'>
+  
+  var ButtonCounter = React.createClass({
+
+    buttonStyle: {
+      width: 200,
+      height: 80,
+      fontSize: 25
+    },
+
+    getInitialState: function() {
+      return { count: 0 };
+    },
+
+    addOne: function() {
+      this.setState({ count: this.state.count + 1 });
+    },
+
+    render: function() {
+      return <div>
+          <div>{ this.state.count }</div>
+          <button style={ this.buttonStyle } onClick={ this.addOne }> +1 </button>
+        </div>
+    }
+  });
+
+React.render(<ButtonCounter />,
+             document.getElementById('example'));
+</script>
+
+???
++ http://jsbin.com/lizutucimo/1/edit?html,js,output
+
+---
+
 class: code-fullscreen component-example
 
 ```html
@@ -299,72 +353,80 @@ React.render(<ButtonCounter />,
 ```
 
 ???
-# -> zurück auf die Ideenebene, Motivation für Components
+auffällig:
++ Markup in der Komponente (JS und "HTML" gemischt)
++ **onclick**
++ JS als Templatingsprache: users.map(...)
 
 ---
 
-class: vertical-center background-green
+class: background-green
 
-.vertical-title[Motivation für Components]
-1. an _einer Stelle_ ablesbar was ein UI Element macht
-1. schwer nachzuvollziehen wenn Daten  **durch mehrere Funktionen** durchgehen.
-2. Bsp.: Bugs, die nur bei bestimmten **Klickpfaden** auftreten nachvollziehen (DOM nicht aktualisiert)
+# JSX
+
+.large-code[
+```html
+  <div class="someClass">
+    Hello
+  </div>
+```
+
+```javascript
+  React.dom.div(
+    {class: "someClass"}, "Hello");
+```
+]
+
+???
+Implikationen:
++ nur 1 Rückgabewert - ggf. in `<div>` wrappen
++ ggf. mit {{ ' ' }} Spaces hinzufügen
++ [https://facebook.github.io/react/docs/jsx-in-depth.html](https://facebook.github.io/react/docs/jsx-in-depth.html)
+
+---
+
+class: vertical-center vertical-center-medium background-green
+
+.vertical-title[Motivation für Komponenten]
++ an _einer Stelle_ ablesbar was ein UI Element macht
++ einfacher Datenfluss
 
 ???
 + Einfachheit
++ Beispiel war einfach - kein Nesting
 
 ---
 
-class: background-stretch-vertical mutable-state-is-bad
-background-image: url(images/davis-mutable-state-is-bad.png)
+class: code-fullscreen component-example
 
-???
-+ simpelstes Beispiel
-+ -> Problem liegt noch tiefer: veränderliche Datenstrukturen haben (-> **Immutable.js**)
-# -> Reacts Lösung:
+```javascript
+var ButtonCounter = React.createClass({
+  getInitialState: function() {
+    return { count: 0 };
+  },
 
+  addOne: function() {
+    this.setState({ count: this.state.count + 1 });
+  },
+
+  render: function() {
+    return <div>
+        <div>{ this.state.count }</div>
+        <button onClick={ this.addOne }> +1 </button>
+      </div>
+  }
+});
+```
 ---
 
 class: vertical-center vertical-center-large background-green
 
 _state_ -vs- _props_
 
----
-
-class: code-fullscreen component-example
-
-```html
-<script src='react.js'></script>
-<script src='JSXTransformer.js'></script>
-
-<div id='example'></div>
-
-<script type='text/jsx'>
-  var ButtonCounter = React.createClass({
-    getInitialState: function() {
-      return { count: 0 };
-    },
-
-    addOne: function() {
-      this.setState({ count: this.state.count + 1 });
-    },
-
-    render: function() {
-      return <div>
-          <div>{ this.state.count }</div>
-          <button onClick={ this.addOne }> +1 </button>
-        </div>
-    }
-  });
-
-React.render(<ButtonCounter />,
-             document.getElementById('example'));
-```
+???
++ sehr wichtiges Merkmal von Komponenten, wodurch leichter nachzuvollziehen ist was in ihnen passiert:
 
 ???
-state kennen wir schon.
-
-# direkt weiter machen
 
 ---
 
@@ -393,45 +455,57 @@ _state_ -vs- _props_
 + **state** ist veränderbar, aber wird nur von dieser Komponente verändert
 + **props** sind _für diese Komponente_ unveränderbar
 + zähmt das **Mutable State Monster**
-+ macht Code viel besser nachvollziehbar wenn ich weiß dass etwas nicht verändert werden kann
++ macht Code viel besser nachvollziehbar wenn ich weiß, dass etwas nicht verändert werden kann
 
 ---
 
-class: vertical-center vertical-center-large background-green
-
-_unidirectional_ data flow
+class: background-stretch-vertical mutable-state-is-bad
+background-image: url(images/davis-mutable-state-is-bad.png)
 
 ???
-immer von Parent zu Child.
++ -> **Immutable.js**
 
 ---
 
-class: vertical-center vertical-center-large background-green
+class: vertical-center vertical-center-medium background-green
 
-.vertical-title[when data needs to travel upstream]
-Flux
+.vertical-title[alles fließt stromabwärts]
+
+_unidirektionaler_ Datenfluss zwischen Komponenten
 
 ???
-+ child -> parent (z.b. Toggler) oder inputs
-+ kein **Flux** heute, was neueres
++ immer von Parent zu Child.
 
 ---
 
 class: vertical-center vertical-center-large background-green
 
-How do components get the **data** they need?
-
----
-
-class: vertical-center vertical-center-large background-green
-
-.vertical-title[alien territory ahead]
-
-**GraphQL** and **Relay**
+.vertical-title[und wenn's doch mal stromaufwärts sein muss]
+**Flux**
 
 ???
-+ **GraphQL**: Abfragesprache, die Relay möglich macht, hat nix mit der GraphAPI zu tun
-+ **Relay**: Integration dieser Sprache mit React
++ child -> parent
++ viele Forks und Abarten: Reflux, Flummox, ...
++ in Flux kommt man nicht so schnell rein wie in React
+
+---
+
+background-image: url(images/flux-diagram.png)
+
+---
+
+class: vertical-center vertical-center-medium background-green
+
+.wrapper[
+# Ausblick Komponentenarchitektur
+
++ CSS in JavaScript
++ Datenanforderungen in der Komponente (GraphQL & Relay)]
+
+???
+
++ CSS: wozu SASS etc. wenn ich JavaScript benutzen kann?
++ alles was für eine Komponente wichtig ist in einer Datei - keine Trennung von Technologien
 
 ---
 
@@ -453,32 +527,12 @@ auf **Server** muss das gleiche Wissen stecken damit wir nicht zu viele API Requ
 
 ---
 
-background-image: url(images/relay-02.png)
-
-???
-bei Änderungen: überall anpassen :(
-
----
-
-background-image: url(images/relay-04.png)
-
-???
-+ Components und API-Daten dazu
-
----
-
-background-image: url(images/relay-05.png)
-
-???
-lassen wir die Values weg haben wir unsere **Datenanforderungen** :)
-
----
-
 background-image: url(images/relay-06.png)
 
 ???
-das ist **GraphQL**
-hat **serverseitige** Komponente
++ das ist **GraphQL**
++ Datenanforderungen steigen zum Wurzelelement auf und werden dort aggregiert an den Server geschickt
++ hat **serverseitige** Komponente
 
 ---
 
@@ -491,10 +545,6 @@ class: vertical-center vertical-center-large background-green
 + Komponenten spezifizieren ihre Datenanforderungen
 + Eltern verweisen auf die Anforderungen ihrer Kinder
 + Rootkomponente aggregiert alle Anforderungen und schickt GraphQL Anfrage an Server
-
----
-
-background-image: url(images/relay-example.png)
 
 ---
 
@@ -543,69 +593,60 @@ class: large-code background-blue
 
 ---
 
-# More treasures
+class: vertical-center
 
-+ David Nolen, Cognitect: ["React Refracted"](https://www.youtube.com/watch?v=5hGHdETNteE)
-+ Lee Byron, Facebook: ["Immutable Data and React"](https://www.youtube.com/watch?v=I7IdS-PbEgI)
+.wrapper[
+# Resümee: Vorteile
++ macht einfach Spaß - schnelle Ergebnisse
++ Facebook nutzt und treibt React voran
++ viele Entwickler, da JS-Bibliothek
++ server-seitiges Rendern
++ Bibliothek
++ Beiträge aus Clojure Community
+]
 
-???
-Dome of the cathedral of Florence
+---
+
+class: vertical-center
+
+.wrapper[
+# Resümee: Nachteile
++ Abhängigkeit von Facebook
++ Komponenten nur mit React verwendbar
++ nicht rein reaktiv ([staltz.com/dont-react](http://staltz.com/dont-react))
++ JavaScript ist kaputt
++ Flux: fehlende Best Practices
++ kein Framework
+]
+
+---
+
+[https://brumm.github.io/react-flexbox-playground](https://brumm.github.io/react-flexbox-playground)
 
 ---
 
 class: vertical-center vertical-center-large
 
 .wrapper-center[
-Summary
+Wir suchen JS Entwickler!
 <br>
 .railslove-heart[![heart](images/railslove-heart.svg)]
 ]
 
 ???
-+ React's component architecture macht es leicht nachzuvollziehen was der Code macht
++ Virtuelle DOM erleichtert das bauen von "reaktiven" UIs erheblich
++ Reacts Komponentenarchitectur macht es leicht nachzuvollziehen was der Code macht
 + Zukunft: Relay, Flux, ClojureScript
 + **Virtual DOM**: kopiert, **standalone**
 
----
-
-Jenseits von React
-
-+ ClojureScript: Om / Quiescent / 
-
-
----
-
-Resümee
-
-Pros
-+ Facebook nutzt und treibt React voran
-+ server-seitiges Rendern
-
----
-
-~
-+ Facebook: Abhängigkeit -vs- viele Entwickler
-+ JavaScript: große Verbreitung -vs- kaputte Sprache
-
----
-
-Contras
-+ Abhängigkeit von Facebook
-+ Komponenten nur mit React verwendbar
-+ nicht richtig reaktiv ([staltz.com/dont-react](http://staltz.com/dont-react))
-+ nutzt JavaScript
-
----
-
-# Wir suchen JS Entwickler!
-
+# 
 ---
 
 class: vertical-center background-blue
 
 .wrapper[
 # React Europe
-2-3 July, Paris
+2.-3. Juli in Paris
 
 [react-europe.org](http://www.react-europe.org)
 ]
