@@ -1,0 +1,21 @@
+React namensherkunft, reactive dom
+
+https://tinyurl.com/react-paul
+https://tinyurl.com/clojure-post
+
+
+---
+
+---
+
+class: vertical-center vertical-center-medium background-blue
+
+.vertical-title[Virtueller DOM]
+
+Daten → _f_ → UI
+
+---
+
+Links
+
+[http://red-badger.com/blog/2015/03/04/react-native-the-killer-feature-that-nobody-talks-about](http://red-badger.com/blog/2015/03/04/react-native-the-killer-feature-that-nobody-talks-about)

@@ -1,0 +1,341 @@
+* {
+  box-sizing: border-box;
+}
+
+/* GENERIC */
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-family: 'PT Serif', 'Droid Serif', Garamond, serif;
+}
+
+.remark-slide-content {
+  padding: 60px 80px;
+  font-size: 3.5rem;
+}
+
+h1,h2,h3,h4,h5,h6 {
+   font-family: Helvetica, Arial, sans-serif;
+} 
+
+ul, ol {
+  padding: 0;
+  margin-left: 45px;
+}
+
+ul li, ol li {
+  margin-bottom: 10px;
+}
+
+.remark-slide-content h1 {
+ margin-top: 0;
+ margin-bottom: 20px;
+ font-size: 8rem;
+ text-decoration: underline;
+}
+
+.background-cover {
+  background-size: cover !important;
+  background-position: center !important;
+}
+
+.white-text {
+  color: white
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0,0,0,0.8);
+  padding: 60px 80px;
+  color: white;
+}
+
+.vertical-center {
+  font-size: 4.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  left: 0;
+}
+
+.vertical-center-large {
+  font-size: 7.5rem;
+}
+
+.vertical-center-medium {
+  font-size: 6rem;
+}
+
+.vertical-center-left {
+  justify-content: flex-start;
+}
+
+a, a:visited {
+  color: #00CB7A;
+}
+
+.medium {
+  font-size: 80px;
+}
+
+.large {
+  font-size: 110px;
+}
+
+.contain-images img {
+  max-width: 100%;
+}
+
+
+/* SLIDES */
+
+.title {
+  background-size: 100% auto !important;
+  background-position: 100% 2% !important;
+  color: white;
+  box-shadow: inset 0px 0px 120px 40px rgba(0,0,0,0.8);
+}
+
+.title a, .title a:visited {
+  text-decoration: none;
+}
+
+.title .remark-slide-number {
+  display: none;
+}
+
+.title--note {
+  display: none;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  background: darkred;
+  width: 100%;
+  color: white;
+  font-size: 14px;
+  text-align: center;
+}
+
+.titles {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 80px;
+  background: rgba(0,0,0,0.6);
+  padding: 40px 50px;
+}
+
+.headline_overlay {
+  background: rgba(0,0,0,0.6);
+  padding: 40px 50px;
+  position: absolute;
+  left: 0;
+  width: 100%
+}
+
+.titles h1 {
+  text-transform: uppercase;
+  margin-top: 0;
+  font-size: 8rem;
+  margin-bottom: 20px;
+}
+
+.author, .author a {
+  color: #aaa;
+  font-size: 32px;
+  font-style: italic;
+}
+
+.react-conf {
+  background-color: #05A8D5;
+}
+
+.where-we-stand {
+  color: white;
+  background-size: 212% auto !important;
+  background-position: center 48% !important;
+}
+
+.what-is-react {
+  color: white;
+  background-size: 150% auto !important;
+  background-position: 80% 33% !important;
+  box-shadow: inset -100px 0px 110px 160px rgba(0,0,0,0.95);
+}
+
+.code-fullscreen {
+  padding: 10px;
+}
+
+.component-example .remark-code {
+  font-size: 24px;
+  padding: 0;
+}
+
+.no-vertical-padding {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+.rerender-everything {
+  font-size: 64px;
+}
+
+.muffin {
+  background-size: auto 80% !important;
+  background-position: center !important;
+  background-color: #ddd;
+}
+
+.stripe {
+  top: 0;
+  bottom: 0;
+  position: absolute;
+  width: 50%;
+  display: block;
+}
+.stripe--red {
+  background: #C82828;
+  left: 0;
+}
+.stripe--green {
+  background: #30C828;
+  left: 0;
+}
+.stripe--blue {
+  background: #284EC8;
+  right: 0;
+}
+
+.railslove-heart {
+  width: 100px;
+  display: inline-block;
+  margin-top: 50px;
+}
+
+.wrapper-center {
+  text-align: center;
+}
+
+.vertical-title {
+  position: absolute;
+  top: 60px;
+  left: 80px;
+  font-size: 45px;
+  font-style: italic;
+  color: #999;
+}
+
+.vertical-source {
+  margin-top: -70px;
+  font-size: 4.5rem;
+}
+
+.vertical-source--normal {
+  margin-top: 0;
+  color: #ddd;
+  font-size: 3.5rem;
+}
+
+.green {
+  color: #30C828;
+}
+
+.blue {
+  color: #284EC8;
+}
+.small {
+  font-size: 40px;
+  display: block;
+}
+
+.large-code code {
+  font-size: 47px;
+}
+
+.background-stretch-vertical {
+  background-size: auto 100% !important;
+}
+
+.mutable-state-is-bad {
+  background-color: black;
+}
+
+.background-black {
+  background-color: black;
+}
+
+.background-green {
+  background-color: #25991F;
+  color: #fff;
+}
+
+.background-green a {
+  color: #fff;
+}
+
+.background-green .vertical-title {
+  color: #ccc;
+}
+
+.background-blue {
+  background-color: #284EC8;
+  color: white;
+}
+
+.background-blue a {
+  color: #fff;
+}
+
+.background-blue .vertical-title {
+  color: #ccc;
+}
+
+.vertical-center-medium ul, .vertical-center ul {
+  width: 100%;
+}
+
+.no-margin-top-p p {
+  margin-top: 0;
+}
+
+.large-list.large-list-center ul {
+  margin: 0 auto;
+}
+
+.large-list ul {
+  font-size: 4.5rem;
+  width: 70%;
+}
+.large-list ul li {
+  margin-bottom: 3rem;
+}
+
+.alman {
+  overflow: hidden;
+  display: block;
+  height: 164px;
+}
+
+.alman img {
+  width: 60%;
+}
+
+.width-50, .width-50 img {
+  width: 50%;
+}
+
+.height-150 {
+  height: 150px;
+  width: 100%;
+}
