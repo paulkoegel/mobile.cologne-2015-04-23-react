@@ -18,9 +18,24 @@ class: background-black
 background-image: url(images/paul_wittmann_wakkahari.jpg)
 
 ???
-+ Entwickler bei **Railslove**: Webfrontends, vor anderthalb Jahren React entdeckt, keine Erfahrung mit nativer Entwicklung
++ Entwickler bei **Railslove**: Webfrontends
++ vor anderthalb Jahren React entdeckt, keine Erfahrung mit nativer Entwicklung
 + React vorstellen, v.a. **Ideen** dahinter & **Neugier** wecken
 + **kein Tutorial**
+
+---
+
+background-image: url(images/react-logo-1000-transparent.png)
+
+???
++ 2013: erst verworfen
++ vor anderthalb Jahren über Clojure Community gefunden
++ Dezember 2013: ["The Future of JavaScript MVC Frameworks"](https://swannodette.github.io/2013/12/17/the-future-of-javascript-mvcs/) (David Nolen)
+
+---
+
+background-image: url(images/omingard-post.png)
+class: background-cover
 
 ---
 
@@ -214,6 +229,10 @@ class: vertical-center vertical-center-large background-blue
 .vertical-title[Hauptproblem]
 
 DOM-Updates sind langsam
+
+---
+
+background-image: url(images/neo-virtual-dom.png)
 
 ---
 
@@ -567,6 +586,8 @@ class: vertical-center background-blue
 + JS runtime --**asynchronously**-> native thread
 + "**learn once**, write anywhere"
 + web development experience 
++ Flexbox nachimplementiert
++ React Canvas
 ]
 
 ???
@@ -631,6 +652,8 @@ class: vertical-center vertical-center-large
 Wir suchen JS Entwickler!
 <br>
 .railslove-heart[![heart](images/railslove-heart.svg)]
+
+kontakt@railslove.com
 ]
 
 ???
@@ -654,7 +677,7 @@ class: vertical-center background-blue
 ---
 
 .vertical-center.large[
-Questions
+Fragen?
 ]
 
 ---
@@ -668,3 +691,9 @@ Questions
 + [Hotloader](https://www.youtube.com/watch?v=pw4fKkyPPg8)
 + [React & Om](https://paulwittmann.github.io/cgnjs-om)
 + [My Way into Clojure: Building a Card Game with Om](http://www.railslove.com/stories/my-way-into-clojure-building-a-card-game-with-om-part-1)
+
+---
+
+.vertical-center.large[
+Danke!
+]
