@@ -376,10 +376,10 @@ a, a:visited {
 
 .full-page-link a {
   position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
+  top: 20%;
+  bottom: 20%;
+  left: 20%;
+  right: 20%;
   display: block;
   z-index: 1;
 }
