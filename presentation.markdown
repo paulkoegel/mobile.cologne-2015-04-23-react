@@ -765,11 +765,18 @@ class: vertical-center vertical-center-small
 
 .wrapper[
 # Synthese
-+ extrem spannende Technologie und Ideen
++ extrem spannende Technologie und Ideen -> ausprobieren!
++ Leben von Frontendentwicklern vereinfacht
 + React ist ein Pionier, liegt sicher nicht in allen Belangen richtig
-+ auf die Ideen kommt es an und davon werden uns einige noch länger beschäftigen
++ auf die Ideen kommt es an und davon werden uns einige noch länger beschäftigen und begegnen
 + nicht bei React haltmachen: [Immutable.js](https://facebook.github.io/immutable-js), [Flow](http://flowtype.org), [Cycle](https://github.com/staltz/cycle), [Baobab](https://github.com/Yomguithereal/baobab), [ClojureScript](https://github.com/clojure/clojurescript), [Om](https://github.com/omcljs/om), [CSP](https://en.wikipedia.org/wiki/Communicating_sequential_processes) z.B. mit [core.async](http://go.cognitect.com/core_async_webinar_recording), [Elm](http://elm-lang.org).
 ]
+
+---
+
+class: vertical-center vertical-center-large background-grey
+
+**Coda**
 
 ---
 
@@ -838,15 +845,15 @@ Fragen?
 class: no-padding-top
 
 ## Links: Vorträge
-+ ["React.js Conf 2015 Keynote - Introducing React Native"](https://www.youtube.com/watch?v=KVZ-P-ZI6W4)
-+ ["React.js Conf 2015 Keynote 2 - A Deep Dive into React Native"](https://www.youtube.com/watch?v=7rDsRXj9-cU)
-+ ["Introduction to React Native"](https://www.youtube.com/watch?v=n5RhAYhTxCk)
-+ ["Why does React Scale?"](https://www.youtube.com/watch?v=D-ioDiacTm8)
-+ ["React: CSS in your JS"](https://vimeo.com/116209150)
-+ ["The ReactJS Landscape"](https://www.youtube.com/watch?v=oRmj3IUkRVk)
-+ ["The challenges and benefits of a functional reactive frontend"](https://www.youtube.com/watch?v=TihhFQjtiZU)
-+ ["Simplicity matters"](https://www.youtube.com/watch?v=rI8tNMsozo0) &ndash; Rich Hickey
-+ ["Clojure: Programming with Hand Tools"](https://www.youtube.com/watch?v=ShEez0JkOFw)
++ [React.js Conf 2015 Keynote - Introducing React Native](https://www.youtube.com/watch?v=KVZ-P-ZI6W4)
++ [React.js Conf 2015 Keynote 2 - A Deep Dive into React Native](https://www.youtube.com/watch?v=7rDsRXj9-cU)
++ [Introduction to React Native](https://www.youtube.com/watch?v=n5RhAYhTxCk)
++ [Why does React Scale?](https://www.youtube.com/watch?v=D-ioDiacTm8)
++ [React: CSS in your JS](https://vimeo.com/116209150)
++ [The ReactJS Landscape](https://www.youtube.com/watch?v=oRmj3IUkRVk)
++ [The challenges and benefits of a functional reactive frontend](https://www.youtube.com/watch?v=TihhFQjtiZU)
++ [Simplicity matters](https://www.youtube.com/watch?v=rI8tNMsozo0) &ndash; Rich Hickey
++ [Clojure: Programming with Hand Tools](https://www.youtube.com/watch?v=ShEez0JkOFw)
 
 ---
 
