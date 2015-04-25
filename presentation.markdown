@@ -1,5 +1,5 @@
 class: title
-background-image: url(images/tarkovsky3.jpg)
+background-image: url(images/sunshine.jpg)
 
 .titles[
 # Einführung in React
@@ -9,13 +9,20 @@ background-image: url(images/tarkovsky3.jpg)
 ]
 
 .title--note[
-  'p' drücken um Präsentationsnotizen einzublenden]
+  'p' drücken, um Präsentationsnotizen ein-/auszublenden]
 ]
+
+???
+'p' drücken, um Präsentationsnotizen ein-/auszublenden]
 
 ---
 
 class: background-black
 background-image: url(images/paul_wittmann_wakkahari.jpg)
+
+.full-page-link[
+[](https://twitter.com/wakkahari)
+]
 
 ???
 + Entwickler bei **Railslove**: Webfrontends
@@ -27,15 +34,26 @@ background-image: url(images/paul_wittmann_wakkahari.jpg)
 
 background-image: url(images/react-logo-1000-transparent.png)
 
+.full-page-link[
+[](https://facebook.github.io/react/)
+]
+
 ???
-+ 2013: erst verworfen
-+ vor anderthalb Jahren über Clojure Community gefunden
-+ Dezember 2013: ["The Future of JavaScript MVC Frameworks"](https://swannodette.github.io/2013/12/17/the-future-of-javascript-mvcs/) (David Nolen)
++ 2013: hatte React zunächst verworfen - wg. JSX, Markup in den Komponenten und Facebooks schlechtem Ruf als PHP-Klitsche.
++ Dezember 2013: Blogpost ["The Future of JavaScript MVC Frameworks"](https://swannodette.github.io/2013/12/17/the-future-of-javascript-mvcs/) von [David Nolen](https://twitter.com/swannodette) machte mich erst richtig neugierig auf React.
 
 ---
 
 background-image: url(images/omingard-post.png)
 class: background-cover
+
+.full-page-link[
+[](http://www.railslove.com/stories/my-way-into-clojure-building-a-card-game-with-om-part-1)
+]
+
+???
++ FYI: Hintergrundartikel wie ich über [Clojure](http://clojure.org) und [Om](https://github.com/omcljs/om) zu React kam.
++ Teil 2 steht noch aus.
 
 ---
 
@@ -45,8 +63,7 @@ class: vertical-center
 1. Einführung
 2. .blue[**Virtueller DOM**]
 3. .green[**Komponentenarchitektur**]
-4. (React Native -vs- Touchstone.js)
-5. Jenseits von React
+4. React Native + Demos
 ]
 
 ---
@@ -54,40 +71,74 @@ class: vertical-center
 class: background-cover where-we-stand
 background-image: url(images/hieronymus-bosch-the-garden-of-earthly-delights.jpg)
 
-.headline_overlay[
-  # JavaScript UI Landschaft
+.wrapper[
+.full-page-link[
+[](https://en.wikipedia.org/wiki/The_Garden_of_Earthly_Delights)
 ]
 
+.headline_overlay[
+  # JavaScript UI Landschaft
+]]
+
 ???
-+ Landschaft von Libraries - manchmal auch der UI code
++ Landschaft von Libraries ist chaotisch - manchmal auch der UI Code den wir schreiben
++ HTML wurde nicht für **Webanwendungen** geschaffen
 + User Interfaces sind schwer: Frameworks **sprießen aus dem Boden**
-+ HTML wurde nicht für **Webapps** gebaut
 + viel Bewegung und Raum für Innovation
++ React hat hier eine ziemliche Bresche geschlagen, viele andere Frameworks übernehmen gerade Ideen
+
+---
+
+class: vertical-center
+
+.wrapper[
+# Reacts Anfänge
++ Mitte 2013: von Facebook veröffentlicht
++ erste Reaktionen verhalten bis skeptisch
++ selbst erst durch Om & ["Rethinking best practices"](https://www.youtube.com/watch?v=x7cQ3mrcKaY) überzeugt
+]
 
 ---
 
 class: vertical-center vertical-center-large
 
 .wrapper.no-margin-top-p[
-  A JavaScript _library_ for<br> building user interfaces.
+  A JavaScript library for<br> building user interfaces.
+
+  .vertical-source[
+    \- React website.]
+]
+
+---
+
+class: vertical-center
+
+.wrapper[
+# React
++ BSD Lizenz, "Patent"-Datei ([AKTUALISIERT](https://code.facebook.com/posts/1639473982937255/updating-our-open-source-patent-grant/))
++ Facebook, Instagram, Whatsapp, Yahoo, AirBnB, Khan Academy, Netflix, Atom editor, HipChat, Flipboard, BBC, Github, KISSmetrics, Pivotaltracker, Reddit, Uber, Sberbank... [mehr](https://github.com/facebook/react/wiki/Sites-Using-React)
+]
+
+???
+---
+
+class: vertical-center vertical-center-large
+
+.wrapper.no-margin-top-p[
+  A JavaScript **_library_** for<br> building user interfaces.
 
   .vertical-source[
     \- React website.]
 ]
 
 ???
-### Geschichte
-+ Mitte 2013, Facebook
-+ erste Reaktionen skeptisch - selbst erst durch Om & Pete Hunt überzeugt.
-+ Facebook, Instagram, Atom editor, Airbnb, Hipchat
-
 <br>
 ### Library
-+ **Erwartungshaltung**: kein **Framework**
-+ the "V" in MVC - kein MVC, aber mehr als nur "V", da andere Ideen
-+ **Virtual DOM** -> great performance; und das war's - es geht um mehr.
 
-<br>
++ viele stellten falsche Erwartungen an React - betrat die "JS MVC" Arena
++ ist kein **Framework** - und will auch keines werden
++ vulgo "the 'V' in MVC" - React folgt aber nicht MVC
++ **Virtual DOM** -> klasse Performanz und das war's - es geht aber um mehr (Komponentenarchitektur). [You're missing the point of React](https://medium.com/@dan_abramov/youre-missing-the-point-of-react-a20e34a51e1a).
 + flexibles Werkzeug, schränkt mich nicht ein wie ein Framework ("A product with the business logic removed, but all of the assumptions left in." (Devil’s Dictionary of Programming))
 + lässt sich leicht in bestehende Lösungen **integrieren**
 
@@ -98,34 +149,39 @@ class: vertical-center vertical-center-left
 .vertical-title[Bibliothek]
 
 + nicht **Sprache des Frameworks** lernen
++ kämpfen gegen das Framework
 + **vielseitiges Werkzeug**, das es erlaubt die Business-Logik in der Sprache der Problemdomäne zu modellieren
++ ["Architecture - The Lost Years"](https://www.youtube.com/watch?v=WpkDN78P884) (2011)<br> &ndash; "Uncle Bob" Robert Martin
+
+???
++ Uncle Bob: Ordnerstruktur einer Rails Anwendung sagt mir, dass es eine Railsanwendung ist; nicht, dass es ein Onlineshop ist. Bei Gebäuden hingegen (z.B. Kirchen) ist am Grundriss direkt erkennbar welche Funktion sie haben.
 
 ---
 
 class: vertical-center
 .wrapper[
-# React
+# Reacts Bauteile
 + .blue[**Virtueller DOM**]
 + .green[**Komponentenarchitektur**]
 + Browserkompatibilität
 ]
 
 ???
-+ Komp.: synthetische Events ("a cross-browser wrapper around the browser's native event")
++ Kompatibilität: synthetische Events ("a cross-browser wrapper around the browser's native event")
 
 ---
 
 class: vertical-center vertical-center-large
 
-.wrapper[
+.center[
 _alien technology_
 
 .alman[![](images/alman-rethink-best-practices.png)]]
 
 ???
 + erste **Reaktionen** (2013) waren verhalten
-+ _alien_: vom **anderen Stern** -vs- **fremd**
-+ Alien Technology; JSX, templates und view in gleicher Datei
++ _alien_: [vom **anderen Stern**](http://lispers.org) -vs- **fremd**
++ Alien Technology: JSX, templates und view in gleicher Datei
 + Wir sind immer noch dabei zu entdecken was dank React alles möglich ist.
 + Input und **Erweiterungen** der **Clojure community**.
 
@@ -148,18 +204,19 @@ Leichter zu verstehender &<br> besser wartbarer Code
 
 class: vertical-center
 
-.vertical-title[Rich Hickey]
-
 .large-list.large-list-center[
 + **einfach**: keine Verschränkung, handelt von _einer_ Sache, objektiv
 + **leicht**: vertraut, naheliegend, relativ
 + Sprache: leicht für Muttersprachler, aber nicht einfach
++ ["Simplicity matters"](https://www.youtube.com/watch?v=rI8tNMsozo0) &ndash; Rich Hickey
 ]
 
 ???
-+ simple -vs- easy
++ simple (einfach) -vs- easy (leicht); einfach ist das Gegenteil von komplex
 + leicht: Plugin installieren - kann jede Menge Komplexität mit sich bringen
-+ Deutsch sprechen fällt uns allen leicht. Das heißt aber nicht, dass es eine einfache Sprache ist.
++ wir meinen oft, dass leichte Sachen auch einfach sind
++ einfache Lösungen zu finden ist viel schwerer als leichte zu finden
+
 
 ---
 
@@ -275,7 +332,7 @@ class: vertical-center vertical-center-medium vertical-center background-blue
 + DOM wegabstrahiert
 
 ???
-+ React Entwickler modifizieren nicht direkt den DOM -> React Native / React Canvas.
++ React Entwickler modifizieren nicht direkt den DOM -> React Native / React Canvas möglich gemacht.
 
 ---
 
@@ -337,7 +394,7 @@ React.render(<ButtonCounter />,
 </script>
 
 ???
-+ http://jsbin.com/lizutucimo/1/edit?html,js,output
++ [http://jsbin.com/lizutucimo/1/edit?html,js,output](http://jsbin.com/lizutucimo/1/edit?html,js,output)
 
 ---
 
@@ -385,21 +442,22 @@ class: background-green
 
 .large-code[
 ```html
-  <div class="someClass">
+  <div className="someClass">
     Hello
   </div>
 ```
 
 ```javascript
   React.dom.div(
-    {class: "someClass"}, "Hello");
+    {className: "someClass"},
+    "Hello");
 ```
 ]
 
 ???
 Implikationen:
 + nur 1 Rückgabewert - ggf. in `<div>` wrappen
-+ ggf. mit {{ ' ' }} Spaces hinzufügen
++ ggf. mit { ' ' } Spaces hinzufügen
 + [https://facebook.github.io/react/docs/jsx-in-depth.html](https://facebook.github.io/react/docs/jsx-in-depth.html)
 
 ---
@@ -482,7 +540,7 @@ class: background-stretch-vertical mutable-state-is-bad
 background-image: url(images/davis-mutable-state-is-bad.png)
 
 ???
-+ -> **Immutable.js**
++ -> [Immutable.js](https://facebook.github.io/immutable-js), [ClojureScript](https://github.com/clojure/clojurescript)
 
 ---
 
@@ -523,6 +581,7 @@ class: vertical-center vertical-center-medium background-green
 
 ???
 
++ ["React: CSS in your JS"](https://vimeo.com/116209150)
 + CSS: wozu SASS etc. wenn ich JavaScript benutzen kann?
 + alles was für eine Komponente wichtig ist in einer Datei - keine Trennung von Technologien
 
@@ -563,63 +622,120 @@ class: vertical-center vertical-center-large background-green
 + GraphQL in React
 + Komponenten spezifizieren ihre Datenanforderungen
 + Eltern verweisen auf die Anforderungen ihrer Kinder
-+ Rootkomponente aggregiert alle Anforderungen und schickt GraphQL Anfrage an Server
++ Rootkomponente aggregiert alle Anforderungen und schickt GraphQL-Anfrage an Server
 
 ---
 
 class: vertical-center vertical-center-large background-blue
 
-.wrapper[
 # React Native
 
-build **native apps** with React
-]
+---
+
+class: vertical-center background-blue
+
++ möglich gemacht durch Wegabstrahieren des DOMs (ähnlich: [React Canvas](https://github.com/Flipboard/react-canvas))
++ Januar 2015 angekündigt, im März veröffentlicht
++ **Facebook Messenger** und Ad Manager bereits damit in Betrieb
++ bisher nur iOS unterstützt, Android kommt bald
++ [Dokumentation](https://facebook.github.io/react-native) &ndash; [Repository](https://github.com/facebook/react-native)
 
 ???
-Virtual DOM - doesn't matter where you're actually rendering - can easily be exchanged
++ [React Native – When the Mobile Web Isn’t Enough](http://red-badger.com/blog/2015/04/23/react-native-when-the-mobile-web-isnt-enough)
++ [React Native – The Killer Feature that Nobody Talks About](http://red-badger.com/blog/2015/03/04/react-native-the-killer-feature-that-nobody-talks-about)
++ [First Impressions using React Native](http://jlongster.com/First-Impressions-using-React-Native)
++ [Fresh on our Radar: React Native](http://www.railslove.com/stories/fresh-on-our-radar-react-native)
 
 ---
 
 class: vertical-center background-blue
 
 .wrapper[
-+ JS runtime --**asynchronously**-> native thread
++ JS Runtime --**asynchron**-> nativer Thread
 + "**learn once**, write anywhere"
-+ web development experience 
-+ Flexbox nachimplementiert
-+ React Canvas
++ Neuladen wie im Browser, ohne Kompilierungsschritt
++ [Flexbox nachimplementiert](https://github.com/facebook/css-layout)
++ keine Ajax-Requests, kein CORS, aber z.B. `fetch` als API für iOS Netzwerk APIs. [mehr](https://facebook.github.io/react-native/docs/network.html)
 ]
-
-???
-1. write JS & React, runs on a **JS runtime** renders to **native views**
-2. **the platforms are different** - not the same code but the same stack - **the platforms are different**
-3. no compilation step
 
 ---
 
 class: large-code background-blue
+
+## Plattformspezifische Templates
 
 ```html
 <View>
   <Text numberOfLines={2}>
     {this.props.movie.title}
   </Text>
+  <DatePickerIOS ... />
 </View>
 ```
 
 ???
-+ instead of **div** and **span**
-+ native views are simply **different**
-+ write once run anywhere is a **pipe dream**
++ `View` und `Text` gleich zwischen iOS und Android, `DatepickerIOS` nicht.
++ `View` entspricht einem `div`, `Text` einem `span`
++ native Views sind einfach unterschiedlich -> plattformspezifische Templates schreiben mit gleicher Technologie (JS & React)
++ **"write once run anywhere"** ist ein Wunschtraum
+
+---
+
+class: vertical-center no-padding-top
+
+# React Native Demo:<br> WeatherApp<br>(3MB)
+
+[![WeatherApp screenshot](images/weather-app.png)](https://github.com/jsphkhan/ReactNativeExamples/tree/master/ios/WeatherApp)
+
+???
+Quelle: [https://github.com/jsphkhan/ReactNativeExamples/tree/master/ios/WeatherApp](https://github.com/jsphkhan/ReactNativeExamples/tree/master/ios/WeatherApp)
+
+---
+
+background-image: url(images/react-native-alert.png)
+
+.full-page-link[
+  [](https://github.com/jsphkhan/ReactNativeExamples/tree/master/ios/WeatherApp)
+]
+
+???
++ im iOS-Simulator CMD-D drücken, um Chrome Debugger zu starten
++ Ctrl-CMD-Z drücken, um Debugging Optionen einzublenden
++ [https://facebook.github.io/react-native/docs/alertios.html](https://facebook.github.io/react-native/docs/alertios.html)
+
+---
+
+class: vertical-center no-padding-top
+
+# TouchstoneJS Demo
 
 ---
 
 class: vertical-center
 
+.wrapper[## Probleme mit React Native<br>1 Woche nach Veröffentlichung
++ fehlende Videounterstützung - kam 3 Tage später
++ Flexbox Bugs im Zusammenspiel mit `border-sizing: border-box`
++ für kleine Demo erstmal [TouchstoneJS](http://touchstonejs.io/) benutzt - hybrides Framework in React
+]
+
+???
+Alternative zu Touchstone: [Reapp](http://reapp.io).
+
+---
+
+class: vertical-center vertical-center-large background-grey
+
+**Resümee**
+
+---
+
+class: vertical-center vertical-center-small
+
 .wrapper[
-# Resümee: Vorteile
+# These
 + macht einfach Spaß - schnelle Ergebnisse
-+ Facebook nutzt und treibt React voran
++ Facebook treibt React voran und nutzt es selbst ausgiebig
 + viele Entwickler, da JS-Bibliothek
 + server-seitiges Rendern
 + Bibliothek
@@ -628,10 +744,10 @@ class: vertical-center
 
 ---
 
-class: vertical-center
+class: vertical-center vertical-center-small
 
 .wrapper[
-# Resümee: Nachteile
+# Antithese
 + Abhängigkeit von Facebook
 + Komponenten nur mit React verwendbar
 + nicht rein reaktiv ([staltz.com/dont-react](http://staltz.com/dont-react))
@@ -640,21 +756,47 @@ class: vertical-center
 + kein Framework
 ]
 
+???
++ ["Reactive MVC and the Virtual DOM"](http://futurice.com/blog/reactive-mvc-and-the-virtual-dom)
+
 ---
 
-[https://brumm.github.io/react-flexbox-playground](https://brumm.github.io/react-flexbox-playground)
+class: vertical-center vertical-center-small
+
+.wrapper[
+# Synthese
++ extrem spannende Technologie und Ideen
++ React ist ein Pionier, liegt sicher nicht in allen Belangen richtig
++ auf die Ideen kommt es an und davon werden uns einige noch länger beschäftigen
++ nicht bei React haltmachen: [Immutable.js](https://facebook.github.io/immutable-js), [Flow](http://flowtype.org), [Cycle](https://github.com/staltz/cycle), [Baobab](https://github.com/Yomguithereal/baobab), [ClojureScript](https://github.com/clojure/clojurescript), [Om](https://github.com/omcljs/om), [CSP](https://en.wikipedia.org/wiki/Communicating_sequential_processes) z.B. mit [core.async](http://go.cognitect.com/core_async_webinar_recording), [Elm](http://elm-lang.org).
+]
 
 ---
 
-class: vertical-center vertical-center-large
+class: no-padding-top
+
+https://brumm.github.io/react-flexbox-playground
+
+[**React Flexbox Playground**](https://railslove.github.io/react-flexbox-playground) von [Philipp Brumm](http://railslove.com/philipp)
+
+.width-100[
+[![https://brumm.github.io/react-flexbox-playground](images/flexbox-playground.png)](https://railslove.github.io/react-flexbox-playground)]
+
+---
+
+class: vertical-center vertical-center-large no-padding-top
 
 .wrapper-center[
-Wir suchen JS Entwickler!
+Wir suchen **JS Entwickler**!
 <br>
 .railslove-heart[![heart](images/railslove-heart.svg)]
 
-kontakt@railslove.com
-]
+.kontakt[
+<kontakt@railslove.com>]
+
+.smaller[React JS/Native &ndash; Ember.js<br>
+in Anstellung oder selbstständig
+]]
 
 ???
 + Virtuelle DOM erleichtert das bauen von "reaktiven" UIs erheblich
@@ -669,7 +811,7 @@ class: vertical-center background-blue
 
 .wrapper[
 # React Europe
-2.-3. Juli in Paris
+2.-3. Juli 2015 in Paris
 
 [react-europe.org](http://www.react-europe.org)
 ]
@@ -682,18 +824,35 @@ Fragen?
 
 ---
 
-# Links
-+ [React.js Conf 2015 Videos](https://www.youtube.com/playlist?list=PLb0IAmt7-GS1cbw4qonlQztYV1TAW0sCr)
+## Links: Artikel & Demos
 + [The Future of JavaScript MVC Frameworks](https://swannodette.github.io/2013/12/17/the-future-of-javascript-mvcs)
 + [Removing User Interface Complexity, or Why React is Awesome](http://jlongster.com/Removing-User-Interface-Complexity,-or-Why-React-is-Awesome)
 + [React’s diff algorithm](http://calendar.perfplanet.com/2013/diff)
-+ [Coming to React from Angular](http://www.stridenyc.com/blog/2015/3/4/coming-to-react-from-angular)
-+ [Hotloader](https://www.youtube.com/watch?v=pw4fKkyPPg8)
-+ [React & Om](https://paulwittmann.github.io/cgnjs-om)
 + [My Way into Clojure: Building a Card Game with Om](http://www.railslove.com/stories/my-way-into-clojure-building-a-card-game-with-om-part-1)
++ [React Hot Loader Demo](https://www.youtube.com/watch?v=pw4fKkyPPg8)
++ [Circle CI demo](https://www.youtube.com/watch?v=5yHFTN-_mOo)
++ [Elm Debugger: Mario double jumps](https://www.youtube.com/watch?v=RUeLd7T7Xi4)
 
 ---
 
-.vertical-center.large[
-Danke!
+class: no-padding-top
+
+## Links: Vorträge
++ ["React.js Conf 2015 Keynote - Introducing React Native"](https://www.youtube.com/watch?v=KVZ-P-ZI6W4)
++ ["React.js Conf 2015 Keynote 2 - A Deep Dive into React Native"](https://www.youtube.com/watch?v=7rDsRXj9-cU)
++ ["Introduction to React Native"](https://www.youtube.com/watch?v=n5RhAYhTxCk)
++ ["Why does React Scale?"](https://www.youtube.com/watch?v=D-ioDiacTm8)
++ ["React: CSS in your JS"](https://vimeo.com/116209150)
++ ["The ReactJS Landscape"](https://www.youtube.com/watch?v=oRmj3IUkRVk)
++ ["The challenges and benefits of a functional reactive frontend"](https://www.youtube.com/watch?v=TihhFQjtiZU)
++ ["Simplicity matters"](https://www.youtube.com/watch?v=rI8tNMsozo0) &ndash; Rich Hickey
++ ["Clojure: Programming with Hand Tools"](https://www.youtube.com/watch?v=ShEez0JkOFw)
+
+---
+
+class: vertical-center vertical-center-large
+
+.wrapper.center[
+**Danke!**<br><br>
+.smaller[[@wakkahari](https://twitter.com/wakkahari)]
 ]
