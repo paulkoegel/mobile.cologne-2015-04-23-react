@@ -540,6 +540,7 @@ class: background-stretch-vertical mutable-state-is-bad
 background-image: url(images/davis-mutable-state-is-bad.png)
 
 ???
++ Diese Folie ist Ian Davis Vortrag ["The challenges and benefits of a functional reactive frontend"](https://www.youtube.com/watch?v=TihhFQjtiZU) entnommen.
 + -> [Immutable.js](https://facebook.github.io/immutable-js), [ClojureScript](https://github.com/clojure/clojurescript)
 
 ---
